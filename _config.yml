@@ -87,7 +87,7 @@ repository: mzlogin/mzlogin.github.io
 #      Comments    #
 # ---------------- #
 # support provider: disqus, gitment, gitalk
-comments_provider: disqus
+comments_provider: gitalk
 # !!!重要!!! 请修改下面这些信息为你自己申请的
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
@@ -103,6 +103,7 @@ gitment:
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: DevBaoChen
+    admin: [DevBaoChen]
     repo: DevBaoChen.github.io
     clientID: a701fa982322fc1a2e26
     clientSecret: 7d713cd27c5e6c6e75b71f15c74eebb6e15fedde
