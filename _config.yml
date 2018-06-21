@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://mazhuang.org
+url: https://github.com/DevBaoChen/index.html
 date_format: "ordinal"
 title: 包臣的博客
 subtitle: "以梦为马，不负韶华"
