@@ -7,7 +7,7 @@ date_format: "ordinal"
 title: 包臣的博客
 subtitle: "以梦为马，不负韶华"
 description: "包臣的博客"
-keywords: Bao Chen, 包臣, , mazhuang
+keywords: Bao Chen, 包臣, 
 timezone: Asia/GuiZhou
 encoding: "utf-8"
 side_bar_repo_limit: 5
@@ -94,15 +94,15 @@ comments_provider: gitalk
 disqus:
     username: 
 # https://imsun.net/posts/gitment-introduction/
-# gitment:
-#     owner: DevBaochen
-#     repo: DevBaoChen.github.io
-#     oauth:
-#         client_id: a701fa982322fc1a2e26
-#         client_secret: 7d713cd27c5e6c6e75b71f15c74eebb6e15fedde
+gitment:
+    owner: DevBaoChen
+    repo: DevBaoChen.github.io
+    oauth:
+        client_id: a701fa982322fc1a2e26
+        client_secret: 7d713cd27c5e6c6e75b71f15c74eebb6e15fedde
 # https://github.com/gitalk/gitalk#install
 gitalk:
-    owner: DevBaochen
+    owner: DevBaoChen
     repo: DevBaoChen.github.io
     clientID: a701fa982322fc1a2e26
     clientSecret: 7d713cd27c5e6c6e75b71f15c74eebb6e15fedde
