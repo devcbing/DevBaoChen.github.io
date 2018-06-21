@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://devbaochen.github.io/index.html
+url: devbaochen.github.io
 date_format: "ordinal"
 title: 包臣的博客
 subtitle: "以梦为马，不负韶华"
