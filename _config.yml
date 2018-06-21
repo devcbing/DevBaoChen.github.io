@@ -94,12 +94,12 @@ comments_provider: gitalk
 disqus:
     username: 
 # https://imsun.net/posts/gitment-introduction/
-gitment:
-    owner: DevBaochen
-    repo: DevBaoChen.github.io
-    oauth:
-        client_id: a701fa982322fc1a2e26
-        client_secret: 7d713cd27c5e6c6e75b71f15c74eebb6e15fedde
+# gitment:
+#     owner: DevBaochen
+#     repo: DevBaoChen.github.io
+#     oauth:
+#         client_id: a701fa982322fc1a2e26
+#         client_secret: 7d713cd27c5e6c6e75b71f15c74eebb6e15fedde
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: DevBaochen
