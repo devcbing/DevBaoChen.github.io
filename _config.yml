@@ -2,12 +2,12 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://github.com/DevBaoChen/index.html
+url: https://devbaochen.github.io/index.html
 date_format: "ordinal"
 title: 包臣的博客
 subtitle: "以梦为马，不负韶华"
 description: "包臣的博客"
-keywords: Bao Chen, 包臣, Android, 
+keywords: Bao Chen, 包臣, , mazhuang
 timezone: Asia/GuiZhou
 encoding: "utf-8"
 side_bar_repo_limit: 5
