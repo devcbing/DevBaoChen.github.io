@@ -6,6 +6,8 @@ description: 使用 Android Studio 自动生成签名并打包
 keywords: Android, Android Studio
 ---
 
+使用 Android Studio 自动生成签名并打包
+
 ## 方法一：
 在android中。可以非常快速的生成签名文件.jsk文件。步骤如下：
 ### 第一步：

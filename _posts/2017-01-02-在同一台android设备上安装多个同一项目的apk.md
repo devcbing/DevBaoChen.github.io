@@ -5,6 +5,9 @@ categories: [Android, Android Studio]
 description: Android 使用 Android Studio 进行多渠道打包
 keywords: Android, Android Studio
 ---
+
+Android 使用 Android Studio 进行多渠道打包
+
 ### 前言
 通常我们在一台android设备上(无论是真机还是模拟器)，安装相同包名的apk应用都只能安装一个应用，如果设备上已经安装了一个apk，如何再次安装这个apk就会覆盖前面的应用，如果想要安装在同一台设备上安装多个相同的apk，唯一的办法只能是改包名了。简单的项目还好，当个一个项目中有许多的类的时候，手动去更改包名一定是一种不可取的方式。那么有没有什么简单的办解决呢？
 ### 解决办法：
