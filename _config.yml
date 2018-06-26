@@ -98,15 +98,15 @@ gitment:
     owner: DevBaoChen
     repo: DevBaoChen.github.io
     oauth:
-        client_id: a701fa982322fc1a2e26
-        client_secret: 7d713cd27c5e6c6e75b71f15c74eebb6e15fedde
+        client_id: d376f82ef00a4eb0d773
+        client_secret: e337c402b2747af360cae8bf2eb949b604c98950
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: DevBaoChen
     admin: [DevBaoChen]
     repo: DevBaoChen.github.io
-    clientID: a701fa982322fc1a2e26
-    clientSecret: 7d713cd27c5e6c6e75b71f15c74eebb6e15fedde
+    clientID: d376f82ef00a4eb0d773
+    clientSecret: e337c402b2747af360cae8bf2eb949b604c98950
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
