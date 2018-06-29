@@ -1,14 +1,14 @@
 ---
 layout: page
 title: Links
-description: 没有链接的博客是孤独的
-keywords: 友情链接
+description: 没有收藏的博客是孤独的
+keywords: 收藏
 comments: true
-menu: 链接
+menu: 收藏
 permalink: /links/
 ---
 
-> God made relatives. Thank God we can choose our friends.
+> 我的收藏
 
 {% for link in site.data.links %}
 * [{{ link.name }}]({{ link.url }})

@@ -3,3 +3,6 @@
 
 - name: wanandroid
   url: http://www.wanandroid.com/
+
+- name: AndroidUtilCode
+  url: https://github.com/Blankj/AndroidUtilCode
