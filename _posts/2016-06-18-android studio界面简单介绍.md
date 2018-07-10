@@ -9,7 +9,7 @@ keywords: Android, Android Studio
 ## 首先简单介绍项目的结构：
 项目结构如下图：
 
-![](http://upload-images.jianshu.io/upload_images/1365793-7730f3ace0facce3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+<!-- ![](http://upload-images.jianshu.io/upload_images/1365793-7730f3ace0facce3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 具体信息：
 ```
@@ -69,7 +69,7 @@ keywords: Android, Android Studio
 ### 5.选择/设置模拟器
 
 ![](http://upload-images.jianshu.io/upload_images/1365793-e643755f483f16d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-### 6.还有其他，啦啦啦啦~~~
+### 6.还有其他，啦啦啦啦~~~ -->
 
 
 
