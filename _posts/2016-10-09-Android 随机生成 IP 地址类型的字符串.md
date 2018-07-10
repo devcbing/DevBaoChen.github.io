@@ -6,8 +6,12 @@ description: android随机生成 IP 地址类型的字符串
 keywords: Android, 
 ---
 
+android随机生成 IP 地址类型的字符串
+
 
 由于最近使用okhttp时，需要访问网络，但是ip被别人家封了，所以我整个人都疯了，好在okhttp中可以添加一个头，`x-forwarded-for `来设置ip去访问，所以，人总是能想到办法来解决问题的。捂嘴笑)
+
+
 这里仅仅实现java生成一个随机的IP类型的字符串比如:192.168.0.1;
 
 ### 代码如下
@@ -42,7 +46,6 @@ public class RandomIp {
      */
     private static String numToip(int ip) {
         int[] b = new int[4];
-
         b[0] = (int) ((ip >> 24) & 0xff);
         b[1] = (int) ((ip >> 16) & 0xff);
         b[2] = (int) ((ip >> 8) & 0xff);
@@ -50,10 +53,12 @@ public class RandomIp {
         String ip_str = Integer.toString(b[0]) + "." + Integer.toString(b[1]) + "." + Integer.toString(b[2]) + "." + Integer.toString(b[3]);
         return ip_str;
     }
-
-
 }
+
+
 ```
+
+
 然后在MainActivity中用一个button按钮打印一下下了，
 
 ![这是来搞笑的图片](http://upload-images.jianshu.io/upload_images/1365793-f166c80dd9734228.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -64,5 +69,4 @@ public class RandomIp {
 
 
 ### 后记:
-使用这种生成的ip类型字符串，放到网络的请求头中，啊啊啊啊啊，就可以访问那个接口了，悄悄的~~~。本文只是小菜鸟在开发过程中的一些记录。如有不足之处，请老司机带带我啊。。。
- No newline at end of file
+使用这种生成的ip类型字符串，放到网络的请求头中，啊啊啊啊啊，就可以访问那个接口了，悄悄的本文只是小菜鸟在开发过程中的一些记录。如有不足之处，请老司机带带我啊。
