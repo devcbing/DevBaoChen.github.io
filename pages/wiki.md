@@ -8,7 +8,7 @@ menu: 生活
 permalink: /wiki/
 ---
 
-> 记多少命令和快捷键会让脑袋爆炸呢？
+> 生活的诗与酒！
 
 <ul class="listing">
 {% for wiki in site.wiki %}
