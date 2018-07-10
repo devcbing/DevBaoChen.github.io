@@ -1,13 +1,13 @@
 ---
 layout: post
-title: android随机生成ip地址类型的字符串
+title: android随机生成 IP 地址类型的字符串
 categories: [Android, ]
-description: android随机生成ip地址类型的字符串 
+description: android随机生成 IP 地址类型的字符串 
 keywords: Android, 
 ---
 
 
-由于最近使用okhttp时，需要访问网络，但是ip被别人家封了，所以我整个人都疯了，好在okhttp中可以添加一个头，"x-forwarded-for" 来设置ip去访问，所以，人总是能想到办法来解决问题的。捂嘴笑)
+由于最近使用okhttp时，需要访问网络，但是ip被别人家封了，所以我整个人都疯了，好在okhttp中可以添加一个头，`x-forwarded-for `来设置ip去访问，所以，人总是能想到办法来解决问题的。捂嘴笑)
 这里仅仅实现java生成一个随机的IP类型的字符串比如:192.168.0.1;
 
 ### 代码如下
@@ -60,7 +60,7 @@ public class RandomIp {
 
 最主要的是下面的日志了~~~；
 
-![我是ip](http://upload-images.jianshu.io/upload_images/1365793-c090f940f8073c8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 
+![我是 IP ](http://upload-images.jianshu.io/upload_images/1365793-c090f940f8073c8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) 
 
 
 ### 后记:
