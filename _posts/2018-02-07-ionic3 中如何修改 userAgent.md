@@ -51,5 +51,5 @@ OverrideUserAgent(string)  | If set, the value will replace the old UserAgent of
 我们在 ionic 中 修改其 `userAgent` 的 时候最好使用  `AppendUserAgent(string) ` 方法，这个样不会替换掉 原有的 `userAgent` 。否则 如何原有的 `userAgent` 被替换了， 我们很可能 不能使用 `import { Platform,} from 'ionic-angular';` 来判断是什么平台。
 
 参考： 
-- 1. [https://cordova.apache.org/docs/en/8.x/config_ref/index.html](https://cordova.apache.org/docs/en/8.x/config_ref/index.html)
-- 2. [https://stackoverflow.com/questions/32052221/how-i-can-set-user-agent-in-cordova-app/32337353#32337353](https://stackoverflow.com/questions/32052221/how-i-can-set-user-agent-in-cordova-app/32337353#32337353)
+- [https://cordova.apache.org/docs/en/8.x/config_ref/index.html](https://cordova.apache.org/docs/en/8.x/config_ref/index.html)
+- [https://stackoverflow.com/questions/32052221/how-i-can-set-user-agent-in-cordova-app/32337353#32337353](https://stackoverflow.com/questions/32052221/how-i-can-set-user-agent-in-cordova-app/32337353#32337353)
