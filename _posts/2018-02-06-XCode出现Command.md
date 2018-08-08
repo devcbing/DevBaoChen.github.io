@@ -2,7 +2,7 @@
 layout: post
 title: Command /usr/bin/codesign failed with exit code 1错误的解决办法
 categories: [XCode, ]
-description: some word here
+description: Command /usr/bin/codesign failed with exit code 1错误的解决办法
 keywords: XCode, 
 ---
 
