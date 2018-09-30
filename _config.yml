@@ -81,7 +81,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: devbaochen/devbaochen.github.io
 
 # ---------------- #
 #      Comments    #
