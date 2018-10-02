@@ -65,8 +65,8 @@ final Key key;
 #### State 
 
 State 的作用:
-- 1. 在 widget 构建的时候可以被同步读取；
-- 2. 在 widget 生命周期中可能会被改变。
+- 1.在 widget 构建的时候可以被同步读取；
+- 2.在 widget 生命周期中可能会被改变。
 
 ##### State 的生命周期
 
@@ -119,9 +119,9 @@ markNeedsBuild 内部，则是通过标记 element 为 diry ，在下一帧的�
 
 对于StatelessWidget，build方法会在如下三种情况下调用，
 
-- 1. widget 第一次被插入到树中；
-- 2. widget 的父节点更改了配置（configuration）；
-- 3. widget 依赖的 InheritedWidget 改变了。
+- 1.widget 第一次被插入到树中；
+- 2.widget 的父节点更改了配置（configuration）；
+- 3.widget 依赖的 InheritedWidget 改变了。
 
 ```
 class GreenFrog extends StatelessWidget {
@@ -137,8 +137,8 @@ class GreenFrog extends StatelessWidget {
 ##### StatefulWidget
 StatefulWidget的两个主要类别：
 
-- 1. 在 initState 中创建资源，在 dispose 中销毁，但是不依赖于 InheritedWidget 或者调用setState 方法，这类 widget 基本上用在一个应用或者页面的 root ；
-- 2. 使用 setState 或者依赖于 InheritedWidget ，这种在营业生命周期中会被重建（rebuild）很多次。
+- 1.在 initState 中创建资源，在 dispose 中销毁，但是不依赖于 InheritedWidget 或者调用setState 方法，这类 widget 基本上用在一个应用或者页面的 root ；
+- 2.使用 setState 或者依赖于 InheritedWidget ，这种在营业生命周期中会被重建（rebuild）很多次。
 
 ```
 class YellowBird extends StatefulWidget {
