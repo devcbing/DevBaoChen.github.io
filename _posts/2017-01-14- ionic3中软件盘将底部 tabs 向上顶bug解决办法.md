@@ -88,7 +88,8 @@ export class HomePage {
 
 主要原理就是 在 tabs 中用 event 做一个监听事件，用来控制隐藏或显示底部 tabs，并在相应的 page 界面进行注册监听。让键盘弹出时调用隐藏 tabs 事件，键盘收回时让 tabs 显示
 
-
+参考：
+[https://github.com/ionic-team/ionic/issues/7047](https://github.com/ionic-team/ionic/issues/7047)
 
 
 
