@@ -8,6 +8,9 @@ keywords: Flutter,
 
 Padding、Align、Center详解
 
+![](/images/posts/flutter/2018-09-30-00.jpeg)
+
+
 ### Padding
 
 Padding : 设置 widget 的内边距 。

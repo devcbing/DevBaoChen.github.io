@@ -8,6 +8,10 @@ keywords: Flutter,
 
 FittedBox 、AspectRatio 、ConstrainedBox 详解
 
+
+![](/images/posts/flutter/2018-09-30-00.jpeg)
+
+
 ### FittedBox
 
 在 Fluuter 中， FittedBox 的主要作用是进行缩放 （Scale） 和位置调整 (Position);
@@ -69,7 +73,10 @@ Widget child,
 **fit:**
 fit：缩放的方式，默认的属性是 BoxFit.contain ， child 在 FittedBox 范围内，尽可能的大，但是不超出其尺寸。这里注意一点， contain 是保持着 child 宽高比的大前提下，尽可能的填满，一般情况下，宽度或者高度达到最大值时，就会停止缩放。
 
-[https://camo.githubusercontent.com/a63dbdd16f869199e3ee06938bbe8aae32502e91/687474703a2f2f776879736f6469616f2e636f6d2f696d616765732f626f786669745f6c61796f75742e706e67](https://camo.githubusercontent.com/a63dbdd16f869199e3ee06938bbe8aae32502e91/687474703a2f2f776879736f6469616f2e636f6d2f696d616765732f626f786669745f6c61796f75742e706e67)
+![](/images/posts/flutter/2018-10-05-01.png)
+
+
+
 **alignment:**
 alignment ：对齐方式，默认的属性是 Alignment.center ，居中显示 child。
 
