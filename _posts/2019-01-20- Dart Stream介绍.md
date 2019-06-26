@@ -1,0 +1,308 @@
+---
+layout: post
+title: 
+Dart Stream介绍
+categories: [Dart, ]
+description: 
+Dart Stream介绍
+keywords: Dart, 
+---
+
+Dart Stream介绍
+
+
+<a name="PSTp3"></a>
+### Stream 介绍
+Stream 是另外一种异步回调方式，是非阻塞的异步数据序列，与 Future 不同的是，它不是采用等待的方式，而是采用监听的方式来得知数据的状态，当数据准备好时会通过回调通知我们。
+<a name="6rLiV"></a>
+### 创建 Stream
+在 dart 中，创建 stream 异步回调方式主要有下面几种
+
+- `Stream.fromIterable()` ，将一个可迭代类型转为 Stream
+- `Stream.fromFuture()`，将一个 Future 转为 Stream
+- `StreamController`，允许我们自定义Stream准备数据的逻辑
+
+<a name="7unOq"></a>
+#### Stream.fromIterable()
+使用`Stream.fromIterable`方法来创建 Stream ，所有的集合都是可迭代类型。我们可以将一个集合转为Stream 。
+
+```dart
+var stream = Stream.fromIterable([1, 2, 3]);
+```
+
+监听异步
+
+```dart
+stream.listen((data){
+    print("$data");
+  });
+  print("start ");
+```
+
+输出结果<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/354817/1561529638578-f962b1af-4b77-497d-8ea6-10e3debba546.png#align=left&display=inline&height=84&name=image.png&originHeight=105&originWidth=159&size=1835&status=done&width=127.2)
+
+
+<a name="3jRdH"></a>
+#### Stream.fromFuture()
+
+```dart
+//延时5秒后返回
+  Future<int> makeFuture() async{
+    await Future.delayed(Duration(seconds: 5));
+    return 1024;
+  }
+//通过Future创建一个延时5秒准备好数据的序列
+  var stream = Stream.fromFuture(makeFuture());
+  stream.listen((data){
+    print("$data-----"+DateTime.now().toString());
+  });
+  print("start -----"+DateTime.now().toString());
+```
+
+打印结果<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/354817/1561531343223-0c2f28bd-58a5-40a1-837a-2dab5588650c.png#align=left&display=inline&height=46&name=image.png&originHeight=58&originWidth=341&size=3940&status=done&width=272.8)
+
+也可以将多个  Future 转成  Stream,使用 Stream.fromFutures(futures) ，每返回一个 Future ,就会有一个 Stream 数据产生。
+
+<a name="ceHPY"></a>
+#### StreamController 
+我们可以使用  StreamController 来自己定义我们的数据逻辑。
+
+```dart
+import 'dart:async';
+
+void main() {
+  intStream(Duration(seconds: 1)).listen(print);
+  print("start!");
+}
+Stream<int> intStream(Duration interval) {
+  var controller = StreamController<int>();
+  var start = 0; //起始值
+  //执行定时任务
+  Timer.periodic(interval, (timer) {
+    start++;
+    controller.add(start); //每隔一个interval周期，就准备一次数据
+  });
+  return controller.stream;
+}
+```
+
+上面我们自己定义了一个定时器的数据。逻辑是每隔一秒打印一次数据。<br />打印结果。<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/354817/1561531752561-3ff3f330-5e40-4166-b908-6b268a51a381.png#align=left&display=inline&height=128&name=image.png&originHeight=160&originWidth=186&size=2912&status=done&width=148.8)
+
+如果我们想要上面的定时器达到某一个条件时就停止。可以向下面这样
+
+```dart
+Timer.periodic(interval, (timer) {
+    start++;
+    controller.add(start); //每隔一个interval周期，就准备一次数据
+    if (start >5){
+      timer.cancel();//停止定时器，
+      controller.close(); //关闭序列。
+    }
+  });
+```
+
+<a name="ivSLT"></a>
+### 监听返回数据
+上面我们介绍了使用 `listen()` 来监听返回的数据，我们还可以使用 await for 来获取返回的数据。
+
+```dart
+main() async {
+  await for (var v in intStream(Duration(seconds: 1))){
+    print(v);
+  }
+}
+```
+需要注意的是 `await for`必须在`async`方法中才能使用。<br /> 
+<a name="2paDo"></a>
+#### 延时返回订阅数据
+
+当调用一个Stream对象的`listen()`方法时，就表示对这个对象进行订阅或监听。但如果不调用`listen()`方法，Stream还会不会生产数据呢？<br />答案是会。<br />在上面的例子中，即使一直没有订阅，Stream对象从创建开始就会进行生产数据，如果没有最大值限制，它会一直生产数据不会停止。生成的数据会被Stream缓存起来，等有人订阅时，会将缓存的数据瞬间全部丢给订阅者。
+
+```dart
+import 'dart:async';
+
+main() async {
+  await listenWithDelay();
+  print("start "+DateTime.now().toString());
+}
+void listenWithDelay() async {
+  var stream = intStream(Duration(seconds: 1));
+  //等待5秒之后再订阅数据
+  await Future.delayed(Duration(seconds: 5));
+  stream.listen(print);//监听并打印
+}
+Stream<int> intStream(Duration interval) {
+  var controller = StreamController<int>();
+  var start = 0; //起始值
+  //执行定时任务
+  Timer.periodic(interval, (timer) {
+    start++;
+    controller.add(start); //每隔一个interval周期，就准备一次数据
+    if (start >5){
+      timer.cancel();//停止定时器，
+      controller.close(); //关闭序列。
+    }
+  });
+  return controller.stream;
+}
+```
+
+打印结果
+
+```dart
+start 2019-06-26 15:04:07.780429
+#等待5秒，瞬间输出1,2,3,4,5,6
+1
+2
+3
+4
+5
+6
+```
+
+使用上面这种方式，很容易导致内存泄漏，所需为了避免这种问题，我们需要使用在有订阅的时候再产生数据。所以再创建 Stream 的时候，我们可以传入一个参数 onListen  该参数是一个方法，一旦有人订阅就会执行。
+
+```dart
+Stream<int> intStream(Duration interval) {
+   StreamController controller ;
+   Timer timer;
+  var start = 0; //起始值
+  //执行定时任务
+   void startTimer(){
+     timer = Timer.periodic(interval, (timer) {
+       start++;
+       controller.add(start); //每隔一个interval周期，就准备一次数据
+       if (start >5){
+         timer.cancel();//停止定时器，
+         controller.close(); //关闭序列。
+       }
+     });
+   }
+  controller = StreamController<int>(onListen: startTimer);
+  return controller.stream;
+}
+
+print("flag "+DateTime.now().toString());
+await listenWithDelay(); //5 秒后开始执行
+print("start "+DateTime.now().toString());
+```
+
+打印结果
+
+```dart
+flag 2019-06-26 15:13:23.401540
+# 5秒后开始
+start 2019-06-26 15:13:28.415412
+1
+2
+3
+4
+5
+6
+```
+<a name="SSIiT"></a>
+#### 暂停与恢复
+如果我们想在数据返回过程中暂停，然后过一段时间后再开始执行。可以使用下面的方式<br />`Stream.listen()`方法返回的是一个`StreamSubscription`对象，该对象提供了`pause()`和`resume()`方法来暂停和恢复Stream。而Stream在构造时也可以传入`onPause`和`onResume`等参数，在这2个参数中我们去做一些暂停和恢复的逻辑。
+
+```dart
+import 'dart:async';
+
+main() async {
+  print("flag "+DateTime.now().toString());
+  await listenWithDelay(); //5 秒后开始执行
+  print("start "+DateTime.now().toString());
+}
+void listenWithDelay() async {
+  var stream = intStream(Duration(seconds: 1));
+  StreamSubscription listener;
+  listener= stream.listen((data){
+    print(data);
+    if (data == 3) {
+      //暂停Stream，3 秒钟之后自动恢复
+      print("flag "+DateTime.now().toString());
+      listener.pause(Future.delayed(Duration(seconds: 3)));
+    }
+  });//监听并打印
+}
+Stream<int> intStream(Duration interval) {
+   StreamController controller ;
+   Timer timer;
+  var start = 0; //起始值
+  //执行定时任务
+   void startTimer(){
+     timer = Timer.periodic(interval, (timer) {
+       start++;
+       controller.add(start); //每隔一个interval周期，就准备一次数据
+       if (start >5){
+         timer.cancel();//停止定时器，
+         controller.close(); //关闭序列。
+       }
+     });
+   }
+   void stopTimer() {
+     if (timer != null) {
+       timer.cancel();
+       timer = null;
+     }
+   }
+   controller = StreamController<int>(
+       onListen: startTimer,
+       onPause: stopTimer,
+       onResume: startTimer,
+       onCancel: stopTimer);
+  return controller.stream;
+}
+```
+
+打印日志
+
+```dart
+flag 2019-06-26 15:30:41.403681
+start 2019-06-26 15:30:41.416678
+1
+2
+3
+flag 2019-06-26 15:30:44.438980  // 暂停3秒后再次开始执行
+4
+5
+6
+```
+
+<a name="FEE0h"></a>
+### Stream 高阶操作
+
+- map
+- <br />
+```dart
+intStream(Duration(seconds: 1)).map((el)=> el * 10).listen(print)
+```
+
+- reduce操作
+`reduce`方法返回的是Future对象，需要`await`结果。
+
+```dart
+print(await intStream(Duration(seconds: 1)).reduce((e1,e2)=> e1 + e2));
+```
+
+- join操作
+join 返回的也是一个 Future
+
+```dart
+print(await intStream(Duration(seconds: 1), 5).join("-"));
+```
+
+- 筛选
+
+```dart
+intStream(Duration(seconds: 1)).where((el) => el % 2 == 0).listen(print);
+```
+
+- 提取
+
+```dart
+//只取前2个数据
+intStream(Duration(seconds: 1)).take(2).listen(print);
+//跳过前2个数据
+intStream(Duration(seconds: 1)).skip(2).listen(print);
+```
+
