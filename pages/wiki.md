@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 生活
-description: 人越学越觉得自己无知
+description: 努力享受生活
 keywords: 生活, 
 comments: false
 menu: 生活
