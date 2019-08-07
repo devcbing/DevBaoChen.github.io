@@ -4,10 +4,10 @@
 baseurl:
 url: https://devbaochen.github.io
 date_format: "ordinal"
-title: 包臣的博客
+title: 八月初十的博客
 subtitle: "但行好事，莫问前程!"
-description: "包臣的博客"
-keywords: Bao Chen, 包臣, 
+description: "八月初十的博客"
+keywords: 八月初十, 
 timezone: Asia/GuiZhou
 encoding: "utf-8"
 side_bar_repo_limit: 5
@@ -16,7 +16,7 @@ side_bar_repo_limit: 5
 #      Author      #
 # ---------------- #
 author: ChenBao
-organization: 包臣
+organization: 八月初十
 organization_url: https://devbaochen.github.io
 github_username: DevBaoChen
 location: GuiZhou, China
